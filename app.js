@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 //         console.error('COULD NOT CONNECT TO DATABASE:', error.message);
 //     }
 // };
-mongoose.connect(process.env.MONGO_URI_Local, {useNewUrlParser: true,
+mongoose.connect(process.env.MONGO_URI_Cloud, {useNewUrlParser: true,
 useUnifiedTopology: true}).then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err));
 
