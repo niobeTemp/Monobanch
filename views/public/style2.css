@@ -1,0 +1,47 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.input-section {
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around; /* Evenly space the inputs */
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+}
+
+.input-section input {
+    padding: 10px;
+    width: 20%; /* Each input takes up roughly 20% of the section's width */
+    margin: 0 5px; /* Space between inputs */
+}
+
+.table-section {
+    height: calc(100% - 62px); /* Subtract the input section's height and border */
+    overflow: auto; /* Enables scrolling if the table is too tall */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, td {
+    border: 1px solid #ddd;
+}
+
+td input {
+    width: 100%;
+    box-sizing: border-box; /* Includes padding and border in the width */
+    border: none;
+    padding: 8px;
+    height: 100%;
+}
+
+td {
+    padding: 0; /* Removes padding around inputs */
+}

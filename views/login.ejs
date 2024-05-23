@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="/signup_style.css">
+<div class="block">
+<form class="forform" action="/signup">
+  <h2>Login</h2>
+  <label for="username">username</label>
+  <input type="text" name="username" required />
+  <div class="username error"></div>
+  <label for="password">Password</label>
+  <input type="password" name="password" required />
+  <div class="password error"></div>
+  <button>Login</button>
+</form>
+<%- include("./partials/footer.ejs"); %>
+</div>
+<script>
+  const form = document.querySelector('form');
+  const usernameError = document.querySelector('.username.error');
+  const passwordError = document.querySelector('.password.error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // reset errors
+    usernameError.textContent = '';
+    passwordError.textContent = '';
+
+    // get values
+    const username = form.username.value;
+    const password = form.password.value;
+
+    try {
+      const res = await fetch('/login', { 
+        method: 'POST', 
+        body: JSON.stringify({ username, password }),
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.errors) {
+        usernameError.textContent = data.errors.username;
+        passwordError.textContent = data.errors.password;
+      }
+      if (data.user) {
+        location.assign('/dashboard');
+      }
+      else location.assign('/login');
+
+    }
+    catch (err) {
+      console.log(err);
+    }
+  });
+</script>

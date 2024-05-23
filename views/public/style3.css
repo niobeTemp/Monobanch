@@ -1,0 +1,49 @@
+.input-form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.input-field {
+    flex: 0 0 48%; /* Use 48% to have two inputs per line with a little space in between */
+    margin-bottom: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+input {
+    width: 95%; /* Slightly less than 100% to fit padding and borders */
+}
+.block {
+    float: left;
+}
+.alignCus{
+    vertical-align: middle;
+}
+.input-section .input-row {
+    margin-bottom: 10px;
+}
+
+.input-row input[type="text"] {
+    margin-right: 10px;
+    padding: 8px;
+    width: calc(50% - 12px); /* Adjusting for padding and margin */
+}
+.input-form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.input-field {
+    flex: 0 0 48%; /* Use 48% to have two inputs per line with a little space in between */
+    margin-bottom: 10px;
+}

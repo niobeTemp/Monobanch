@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/nav_style.css">
+
+<div class="sidebar">
+    <h2>Dashboard</h2>
+    <a onclick="loadPage('home')">Home</a>
+    <a onclick="loadPage('callout_sanitation_schedule')">Callout Sanitation Schedule</a>
+    <a onclick="loadPage('signup')">Analytics</a>
+    <a onclick="loadPage('export')">Export</a>
+</div>
+<script>
+    function loadPage(page) {
+    location.assign(`/${page}`)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('content').innerHTML = html;
+        })
+        .catch(error => console.error('Error loading the page: ', error));
+}
+</script>

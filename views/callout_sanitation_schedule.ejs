@@ -1,0 +1,183 @@
+
+
+    <style>
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 900px; /* Adjust the width as needed */
+            margin: 20px;
+            margin-top: 1px;
+        }
+        .input-field {
+            flex: 0 0 50%; /* Each input field takes up 50% of the form-container width */
+            padding: 20px; /* Spacing for aesthetics */
+            padding-bottom: 1px;
+            box-sizing: border-box; /* Include padding in width calculation */
+            
+        }
+        input[type="text"] {
+            width: 100%; /* Make input field take full width of its container */
+            /* height: 100%; */
+            padding: 8px; /* Padding inside input for better readability */
+            padding-bottom: 1px;
+            box-sizing: border-box; /* Include padding and border in width calculation */
+            
+        }
+        .title{
+            padding: 8px;
+            padding-bottom: 1px;
+            margin-left: 260px;
+            padding-top: 1px;
+        }
+        body {
+    font-family: 'Arial', sans-serif; /* Ensures the font is clean and readable */
+    
+    background: #f4f4f9; /* Light grey background for slight contrast */
+}
+
+.fancy-table {
+    width: 100%;
+    margin: 0 auto; /* Centering the table */
+    border-collapse: collapse; /* Removes the space between borders */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Adds a subtle shadow to the table */
+    margin-top: 50px;
+}
+
+.fancy-table thead th {
+    background-color: #55608f; /* A deep blue shade for header background */
+    color: #ffffff; /* White text color */
+    text-transform: uppercase; /* Makes the header text uppercase */
+    padding: 12px 15px; /* Spacious padding for aesthetic spacing */
+}
+
+.fancy-table tbody td {
+    padding: 12px 15px; /* Consistent padding with header for alignment */
+    color: #333333; /* Darker text color for contrast */
+    border-bottom: 1px solid #dddddd; /* Light border for subtle row separation */
+}
+
+.fancy-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3; /* Zebra striping for rows */
+}
+
+.fancy-table tbody tr:hover {
+    background-color: #f1f1f1; /* Hover effect for each row */
+    cursor: pointer; /* Changes the cursor on row hover */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    .fancy-table {
+        width: 100%; /* Full width for smaller screens */
+    }
+}
+        select{
+            width: 100%;
+            border: 0px;
+        }
+        .formstyle{
+            width: 100%;
+        }
+        .btnstyle{
+            float: right;
+            margin-left: 50px;
+            /* margin-bottom: 5px;
+            margin-top: 3px;
+            background: #FEE996;
+            border:0;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.8em;
+            display: block;
+            padding: 10px 16px;
+            letter-spacing: 2px; */
+        }
+        
+    </style>
+    <%- include("./partials/nav.ejs"); %>
+<form class="formstyle" method="post" action="/callout_sanitation_schedule">
+    <div class="block">
+        <div class="title">
+                <h4>Daily Callout and Sanitation Schedule</h4>
+        </div>
+        <div class="form-container">
+            <div class="input-field">Technician Name
+                <input id="technician_name" name="technician_name" type="text" required>
+            </div>
+            <div class="input-field">Region
+                <input id="region" name="region" type="text" required>
+            </div>
+            
+            <div class="input-field">Date
+                <input id="date" name="date" type="date"/ required>
+            </div>
+            <div class="input-field">Market
+                <input id="market" name="market" type="text" required>
+            </div>
+        </div>
+
+        <table class="fancy-table">
+            <tr>
+                <th>No</th>
+                <th>Outlet Name</th>
+                <th>Service/callout/INS/UPG/REM</th>
+                <th>Comments</th>
+                <th>Time in</th>
+                <th>Time out</th>
+            </tr>
+            <!-- Generate rows with inputs -->
+            <!-- Using JavaScript to avoid repetition in HTML -->
+            <script>
+                for (let i = 1; i <= 8; i++) {
+                    document.write('<tr>');
+                        document.write(`<td>${i}</td>`);
+                    for (let j = 1; j <= 5; j++) {
+
+                        if(j===2){
+                            document.write(`<td><select id="action_typerow${i}col${j}" name="action_typerow${i}col${j}"><option value="Service">Service</option><option value="Callout">Callout</option><option value="INS">INS</option><option value="UPG">UPG</option><option value="REM">REM</option><option value="sixth" selected>none</option></select></td>`)
+                        }
+                        else if(j===4 || j===5){
+                            document.write(`<td><input required id="appt-timerow${i}col${j}" type="time" name="appt-timerow${i}col${j}"></td>`);
+                        }
+                        else
+                        {
+                            document.write(`<td><input required type="text" id="row${i}col${j}" name="row${i}col${j}"></td>`);
+                        }
+                    }
+                    document.write('</tr>');
+                }
+            </script>
+        </table>   
+        <div class="btnstyle">
+            <button type="submit">Save</button>
+        </div>     
+    </div>
+
+</form>
+<!-- <script>
+      const form = document.querySelector('form');
+        form.addEventListener('submit', async (e)=>{
+            e.preventDefault();
+        })
+            try
+            {
+                const res = await fetch('/callout_sanitation_schedule', { 
+            method: 'POST', 
+            body: JSON.stringify({ username, password }),
+            headers: {'Content-Type': 'application/json'}
+            });
+            const data = await res.json();
+            console.log(data);
+            if(data.errors){
+
+            }
+            if(!data.errors)
+            {
+                
+            }
+            }
+            
+            catch (error) {
+                
+            }
+</script> -->

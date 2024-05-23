@@ -1,0 +1,167 @@
+<%- include("./partials/nav.ejs"); %>
+<style>
+      .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 900px; /* Adjust the width as needed */
+            margin: 20px;
+            margin-top: 1px;
+        }
+        .input-field {
+            flex: 0 0 50%; /* Each input field takes up 50% of the form-container width */
+            padding: 20px; /* Spacing for aesthetics */
+            padding-bottom: 1px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+        input[type="text"] {
+            width: 100%; /* Make input field take full width of its container */
+            padding: 8px; /* Padding inside input for better readability */
+            padding-bottom: 1px;
+            box-sizing: border-box; /* Include padding and border in width calculation */
+        }
+        .title{
+            padding: 8px;
+            padding-bottom: 1px;
+            margin-left: 260px;
+            padding-top: 1px;
+        }
+        /* table, th, td {
+            margin-left: 50px;
+            border: 1px solid black;
+        } */
+        body {
+    font-family: 'Arial', sans-serif; /* Ensures the font is clean and readable */
+    
+    background: #f4f4f9; /* Light grey background for slight contrast */
+}
+
+.fancy-table {
+    width: 80%;
+    margin: 0 auto; /* Centering the table */
+    border-collapse: collapse; /* Removes the space between borders */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Adds a subtle shadow to the table */
+}
+
+.fancy-table thead th {
+    background-color: #55608f; /* A deep blue shade for header background */
+    color: #ffffff; /* White text color */
+    text-transform: uppercase; /* Makes the header text uppercase */
+    padding: 12px 15px; /* Spacious padding for aesthetic spacing */
+}
+
+.fancy-table tbody td {
+    padding: 12px 15px; /* Consistent padding with header for alignment */
+    color: #333333; /* Darker text color for contrast */
+    border-bottom: 1px solid #dddddd; /* Light border for subtle row separation */
+}
+
+.fancy-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3; /* Zebra striping for rows */
+}
+
+.fancy-table tbody tr:hover {
+    background-color: #f1f1f1; /* Hover effect for each row */
+    cursor: pointer; /* Changes the cursor on row hover */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    .fancy-table {
+        width: 100%; /* Full width for smaller screens */
+    }
+}
+
+        select{
+            width: 100%;
+            border: 0px;
+        }
+        .formstyle{
+            width: 100%;
+        }
+        .btnstyle{
+            margin-left: 850px;
+            margin-bottom: 5px;
+            margin-top: 3px;
+        }
+</style>
+
+    <!-- Generate rows with inputs -->
+    <!-- Using JavaScript to avoid repetition in HTML -->
+    <table class="fancy-table">
+        <tr>
+        <th>
+            Technician Name
+        </th>
+        <th>
+            Region
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Market
+        </th>
+        <th>
+            Outlet Name
+        </th>
+        <th>
+            Action
+        </th>
+        <th>
+            Comment
+        </th>
+        <th>
+            Time In
+        </th>
+        <th>
+            Time Out
+        </th>
+    </tr>
+    <% dailySchedList.forEach(function(dailySched) { %>
+        <tr>
+        <td>
+            <%= dailySched.technician_name %>
+        </td>
+        <td>
+            <%= dailySched.region %>
+        </td>
+        <td>
+            <%= dailySched.date %>
+        </td>
+        <td>
+            <%= dailySched.market %>
+        </td>
+        <td>
+            <%= dailySched.outlet_name %>
+        </td>
+        <td>
+            <%= dailySched.action_type %>
+        </td>
+        <td>
+            <%= dailySched.comment %>
+        </td>
+        <td>
+            <%= dailySched.time_in %>
+        </td>
+        <td>
+            <%= dailySched.time_out %>
+        </td>
+    </tr>
+      <% }); %>
+   
+    </table>
+    <!-- <script>
+        console.log('ansd');
+        for (let i = 1; i <=5; i++) {
+            console.log('here ', dailySchedList.length);
+            document.write('<tr>');
+                document.write(`<td>${i}</td>`);
+            for (let j = 1; j <= 9; j++) {
+
+                {
+                    document.write(`<td>${dailySchedList[i][j]}</td>`);
+                }
+            }
+            document.write('</tr>');
+        }
+    </script> -->

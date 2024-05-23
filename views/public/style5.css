@@ -1,0 +1,41 @@
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px; /* Adjust the width as needed */
+    margin: 20px;
+    margin-top: 1px;
+}
+.input-field {
+    flex: 0 0 50%; /* Each input field takes up 50% of the form-container width */
+    padding: 20px; /* Spacing for aesthetics */
+    padding-bottom: 1px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+input[type="text"] {
+    width: 100%; /* Make input field take full width of its container */
+    padding: 8px; /* Padding inside input for better readability */
+    padding-bottom: 1px;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+.title{
+    padding: 8px;
+    padding-bottom: 1px;
+    margin-left: 260px;
+    padding-top: 1px;
+}
+table, th, td {
+    margin-left: 50px;
+    border: 1px solid black;
+}
+select{
+    width: 100%;
+    border: 0px;
+}
+.formstyle{
+    width: 100%;
+}
+.btnstyle{
+    margin-left: 850px;
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
