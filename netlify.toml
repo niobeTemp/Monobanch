@@ -1,0 +1,13 @@
+[build]
+command = "npm run build"  # Your build command
+publish = "build"          # Directory to publish
+# Redirect example
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+force = true
+
+# Environment variables
+[build.environment]
+MONGO_URI_Cloud = "mongodb+srv://ethiodove0:2cHhxhB6HEEqx6rD@cluster0.d4nes5x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
