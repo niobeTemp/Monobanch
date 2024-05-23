@@ -41,7 +41,7 @@ app.use(dashboardRoutes);
 app.use(calloutsanitationscheduleRoutes);
 
 
-app.get('/', (req, res) => {res.send('Hello World!');
+app.get('/*', (req, res) => {res.send('Hello World!');
 });
 // app.post('/login', (req, res, next)=>{
 //   res.render('signup');
