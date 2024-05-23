@@ -40,16 +40,16 @@ app.use(authRoutes);
 app.use(dashboardRoutes);
 app.use(calloutsanitationscheduleRoutes);
 
-
+app.use('/home', require('./routes/dashboardRoutes'));
+app.set('view engine', 'ejs');
+app.use(express.static('views/public'));
 app.get('/*', (req, res) => {res.send('Hello World!');
 });
 // app.post('/login', (req, res, next)=>{
 //   res.render('signup');
 //   });
   
-app.use('/home', require('./routes/dashboardRoutes'));
-app.set('view engine', 'ejs');
-app.use(express.static('views/public'));
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('views', path.join(__dirname, 'views'));
