@@ -7,7 +7,3 @@ from = "/*"
 to = "/login.ejs"
 status = 200
 force = true
-
-# Environment variables
-[build.environment]
-MONGO_URI_Cloud = "mongodb+srv://ethiodove0:2cHhxhB6HEEqx6rD@cluster0.d4nes5x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
