@@ -4,6 +4,6 @@ publish = "build"          # Directory to publish
 # Redirect example
 [[redirects]]
 from = "/*"
-to = "/login.ejs"
+to = "/login"
 status = 200
 force = true
