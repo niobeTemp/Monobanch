@@ -43,7 +43,7 @@ app.use(calloutsanitationscheduleRoutes);
 app.use('/home', require('./routes/dashboardRoutes'));
 app.set('view engine', 'ejs');
 app.use(express.static('views/public'));
-app.get('/*', (req, res) => {res.send('Hello World!');
+app.get('/', (req, res) => {res.send('Hello World!');
 });
 // app.post('/login', (req, res, next)=>{
 //   res.render('signup');
