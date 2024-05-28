@@ -36,7 +36,7 @@
 }
 
 .fancy-table {
-    width: 80%;
+    width: 100%;
     margin: 0 auto; /* Centering the table */
     border-collapse: collapse; /* Removes the space between borders */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Adds a subtle shadow to the table */
@@ -83,6 +83,9 @@
             margin-bottom: 5px;
             margin-top: 3px;
         }
+        tr{
+            text-align: center;
+        }
 </style>
 
     <!-- Generate rows with inputs -->
@@ -95,7 +98,7 @@
         <th>
             Region
         </th>
-        <th>
+        <th >
             Date
         </th>
         <th>
@@ -125,7 +128,7 @@
         <td>
             <%= dailySched.region %>
         </td>
-        <td>
+        <td style="white-space:nowrap;">
             <%= dailySched.date %>
         </td>
         <td>

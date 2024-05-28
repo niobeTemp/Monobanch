@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: [true,'username aleady taken!']},
   password: { type: String, required: true, minLength: [6, 'Minimum password length is6 charachters'] },
-  region: { type: String, required: true },
+  region: { type: String},
   roles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Role' }]
 });
 // fire a function before doc saved to db

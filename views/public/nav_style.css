@@ -147,7 +147,7 @@ body {
 }
 
 .sidebar {
-    background-color: #333;
+    background-color: #004651;
     color: #fff;
     padding: 20px;
     min-width: 200px;
@@ -166,7 +166,7 @@ body {
 }
 
 .sidebar a:hover {
-    background-color: #575757;
+    background-color: #004651;
 }
 
 .content {
@@ -189,10 +189,10 @@ body {
 
 .card h3 {
     margin: 0;
-    color: #333;
+    color: #004651;
 }
 
 .card p {
     font-size: 24px;
-    color: #666;
+    color: #004651;
 }
