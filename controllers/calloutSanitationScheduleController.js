@@ -137,6 +137,10 @@ module.exports.C_S_S_get = async(req, res) => {
 
   };
   module.exports.D_C_S_S_list_get = async(req, res) => {
+    try{
     let temp = await DailyCalloutSanitationSchedule.getall();
     res.render('./daily_schedule_list', {dailySchedList: temp ,});
+    }
+    catch(error)
+    {}
   };
