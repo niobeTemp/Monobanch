@@ -58,8 +58,4 @@ app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
 module.exports = app;
-<<<<<<< HEAD
 module.exports.handler = serverless(app);
-=======
-module.exports.handler = serverless(app);
->>>>>>> 020daa26ad5e303579e01637d43366d262dfc3cc
