@@ -1,9 +1,2 @@
 [build]
-command = "npm run build"  # Your build command
-publish = "build"          # Directory to publish
-# Redirect example
-[[redirects]]
-from = "/*"
-to = "/login"
-status = 200
-force = true
+    functions = "functions"
