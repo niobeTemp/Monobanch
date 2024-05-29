@@ -23,17 +23,16 @@ app.use(function (req, res, next) {
   });
 app.use(bodyParser.json());
 
-// module.exports = async () => {
-//     try {
-//         await mongoose.connect('mongodb://localhost:27017/mydatabase', {});
-//         console.log("CONNECTED TO DATABASE SUCCESSFULLY");
-//     } catch (error) {
-//         console.error('COULD NOT CONNECT TO DATABASE:', error.message);
-//     }
-// };
-mongoose.connect(process.env.MONGO_URI_Local, {useNewUrlParser: true,
-useUnifiedTopology: true}).then(() => console.log('MongoDB Connected'))
-.catch(err => console.log(err));
+module.exports = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI_Cloud, {useNewUrlParser: true,
+          useUnifiedTopology: true}).then(() => console.log('MongoDB Connected'))
+          .catch(err => console.log(err));
+    } catch (error) {
+        console.error('COULD NOT CONNECT TO DATABASE:', error.message);
+    }
+};
+
 
 app.use(express.urlencoded({ extended: true }));
 //app.get('/api/auth', authRoutes);
@@ -50,12 +49,12 @@ app.get('/*', (req, res) => {res.render('login');
 //   res.render('signup');
 //   });
 
-
+app.use('/.netlify/functions/app',router);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, 'views'));
 
-app.use('/.netlify/functions/app',router);
+
 // app.listen(PORT, () => {
 //     console.log(`Server running on http://localhost:${PORT}`);
 // });
