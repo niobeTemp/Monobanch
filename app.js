@@ -49,13 +49,15 @@ app.get('/*', (req, res) => {res.render('login');
 // app.post('/login', (req, res, next)=>{
 //   res.render('signup');
 //   });
-//app.use('/.netlify/functions/app',router);
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, 'views'));
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+
+app.use('/.netlify/functions/app',router);
+// app.listen(PORT, () => {
+//     console.log(`Server running on http://localhost:${PORT}`);
+// });
 module.exports = app;
 module.exports.handler = serverless(app);
